@@ -1,1 +1,41 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string word;
+    cin >> word;
+
+    int uppercaseCount = 0;
+    int lowercaseCount = 0;
+
+    // Count the number of uppercase and lowercase letters in the word
+    for (char ch : word) {
+        if (isupper(ch)) {
+            uppercaseCount++;
+        } else {
+            lowercaseCount++;
+        }
+    }
+
+    // Convert the word to all uppercase or all lowercase
+    if (uppercaseCount > lowercaseCount) {
+        // More uppercase letters, convert to uppercase
+        for (char &ch : word) {
+            ch = toupper(ch);
+        }
+    } else {
+        // More lowercase letters or equal counts, convert to lowercase
+        for (char &ch : word) {
+            ch = tolower(ch);
+        }
+    }
+
+    cout << word << endl;
+
+    return 0;
+}
+https://codeforces.com/problemset/problem/59/A
+
 
