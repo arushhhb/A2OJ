@@ -9,4 +9,5 @@ int main(){
         cout<<word<<endl;
         return 0;
     }
+https://codeforces.com/problemset/problem/281/A
     
