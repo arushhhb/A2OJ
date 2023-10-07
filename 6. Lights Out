@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // Initialize the 3x3 grid with all lights turned on (1)
+    int grid[3][3] = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+
+    // Read the input
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            int presses;
+            cin >> presses;
+
+            // Toggle the lights according to the number of presses
+            if (presses % 2 == 1) {
+                grid[i][j] = 1 - grid[i][j];
+                if (i > 0) grid[i - 1][j] = 1 - grid[i - 1][j];
+                if (i < 2) grid[i + 1][j] = 1 - grid[i + 1][j];
+                if (j > 0) grid[i][j - 1] = 1 - grid[i][j - 1];
+                if (j < 2) grid[i][j + 1] = 1 - grid[i][j + 1];
+            }
+        }
+    }
+
+    // Print the final state of the lights
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            cout << grid[i][j];
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
