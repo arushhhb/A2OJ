@@ -1,0 +1,38 @@
+https://codeforces.com/problemset/problem/144/A
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    int h_min = INT_MAX;
+    int h_max = INT_MIN;
+    int a = 0, b = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (v[i] >= h_max) {
+            h_max = v[i];
+            a = i;
+        }
+        if (v[i] <= h_min) {
+            h_min = v[i];
+            b = i;
+        }
+    }
+
+    if (b > a) {
+        cout << a + n - 1 - b;
+    } else {
+        cout << a + n - 2 - b;
+    }
+
+    return 0;
+}
+
+
