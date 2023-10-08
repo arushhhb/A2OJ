@@ -14,11 +14,11 @@ int main() {
         total_volume += p;
     }
     
-    double cocktail_percentage = static_cast<double>(total_volume) / n;
-    
-    cout.precision(9); // Set precision for floating-point output
+    double cocktail_percentage = (double)total_volume / n;
+    cout.precision(14);
     cout << cocktail_percentage << endl;
     
     return 0;
 }
+
 
