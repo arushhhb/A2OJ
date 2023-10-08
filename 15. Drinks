@@ -1,1 +1,24 @@
+https://codeforces.com/problemset/problem/200/B
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    
+    int total_volume = 0;
+    for (int i = 0; i < n; i++) {
+        int p;
+        cin >> p;
+        total_volume += p;
+    }
+    
+    double cocktail_percentage = static_cast<double>(total_volume) / n;
+    
+    cout.precision(9); // Set precision for floating-point output
+    cout << cocktail_percentage << endl;
+    
+    return 0;
+}
 
