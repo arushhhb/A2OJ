@@ -1,0 +1,30 @@
+https://codeforces.com/problemset/problem/80/A
+
+#include <iostream>
+using namespace std;
+bool isPrime(int num){
+    int x=num/2;
+    for (int i=2;i<=x;i++){
+        if (num%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+
+
+int main(){
+    int n,m;
+    cin>>n>>m;
+    int y = n + 1;
+    while (!isPrime(y)) {
+        y++;
+    }
+    if (y==m){
+        cout<<"YES"<<endl;
+    }
+    else {
+        cout<<"NO"<<endl;
+    }
+    return 0;
+}
