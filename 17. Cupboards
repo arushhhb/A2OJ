@@ -1,2 +1,25 @@
 https://codeforces.com/problemset/problem/248/A
 
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int l = 0, r = 0; // Initialize l and r to 0
+    int a, b;
+
+    for (int i = 0; i < n; i++) {
+        cin >> a >> b;
+        l += a;
+        r += b;
+    }
+
+    int minTime = min(l, n - l) + min(r, n - r);
+    cout << minTime << endl;
+
+    return 0;
+}
+
+
+
