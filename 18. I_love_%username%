@@ -1,0 +1,27 @@
+https://codeforces.com/problemset/problem/155/A
+
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int f;
+    cin>>f;
+    int mini=f,maxi=f;
+    int count=0;
+    for (int i=1;i<n;i++){
+        int x;
+        cin>>x;
+        if (x<mini){
+            count++;
+            mini=x;
+        }
+        else if (x>maxi){
+            count++;
+            maxi=x;
+        }
+        
+    }
+    cout<< count;
+   // cout<<maxi<<" "<<mini<<endl;
+}
