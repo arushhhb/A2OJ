@@ -1,2 +1,39 @@
 https://codeforces.com/problemset/problem/339/A
 
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std; // Place this line before the main function
+
+int main() {
+    string s;
+    cin >> s;
+
+    int count_1 = count(s.begin(), s.end(), '1');
+    int count_2 = count(s.begin(), s.end(), '2');
+    int count_3 = count(s.begin(), s.end(), '3');
+
+    string new_sum;
+
+    for (int i = 0; i < count_1; i++) {
+        new_sum += "1+";
+    }
+
+    for (int i = 0; i < count_2; i++) {
+        new_sum += "2+";
+    }
+
+    for (int i = 0; i < count_3; i++) {
+        new_sum += "3+";
+    }
+
+    // Remove the trailing '+' character
+    if (!new_sum.empty()) {
+        new_sum.pop_back();
+    }
+
+    cout << new_sum << endl;
+
+    return 0;
+}
