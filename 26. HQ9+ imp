@@ -1,0 +1,43 @@
+https://codeforces.com/problemset/problem/133/A
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+    bool willProduceOutput = false;
+
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'H' || s[i] == 'Q' || s[i] == '9') {
+            willProduceOutput = true;
+            break;
+        }
+    }
+
+    if (willProduceOutput) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+
+    return 0;
+}
+//have to check each element of s then write YES or NO not the first element only (wrong code below)
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    string s;
+    cin>>s;
+    for (int i=0;i<s.size();i++){
+      if (s[i]=='H'|| s[i]=='Q' ||s[i]=='9'){
+        cout<<"YES"<<endl;
+        break;
+      }
+      else {
+        cout<<"NO"<<endl;
+        break;
+      }
+    }
+    return 0;
+} 
