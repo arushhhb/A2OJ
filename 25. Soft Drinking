@@ -1,0 +1,14 @@
+https://codeforces.com/problemset/problem/151/A
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int n, k, l, c, d, p, nl, np;
+    cin>>n>>k>>l>>c>>d>>p>>nl>>np;
+    int toast_with_drinks=k*l/(nl);
+    int toast_with_lime=c*d;
+    int toast_with_salt=p/np;
+    int min_toasts=min(toast_with_salt,min(toast_with_lime,toast_with_drinks));
+    int toast_per_friend=min_toasts/n;
+    cout<<toast_per_friend<<endl;
+}
