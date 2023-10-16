@@ -1,2 +1,84 @@
 https://codeforces.com/problemset/problem/227/B
 
+#include <iostream>
+#include <vector>
+ 
+using namespace std;
+ 
+int main() {
+    int n;
+    cin >> n;
+ 
+    vector<int> arr(n);
+    vector<int> positions(n + 1);
+ 
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+        positions[arr[i]] = i;
+    }
+ 
+    int m;
+    cin >> m;
+ 
+    long long vasyaComparisons = 0;
+    long long petyaComparisons = 0;
+ 
+    for (int i = 0; i < m; ++i) {
+        int query;
+        cin >> query;
+        vasyaComparisons += positions[query] + 1;
+        petyaComparisons += n - positions[query];
+    }
+ 
+    cout << vasyaComparisons << " " << petyaComparisons << endl;
+ 
+    return 0;
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int linearSearch1(int arr[], int b, int n){
+  int ans=-1;
+  for (int j=0;j<n;j++){
+    if (arr[j]==b){
+      ans=j+1;
+    }
+  }
+  return ans;
+}
+ 
+int linearSearch2(int arr[], int b, int n){
+  int ans=-1;
+  for (int j=n-1;j>=0;j--){
+    if (arr[j]==b){
+      ans=n-j;
+    }
+  }
+  return ans;
+}
+ 
+int main() {
+    int n;
+    cin>>n;
+    int arr[n];
+    for (int i=0;i<n;i++){
+      cin>>arr[i];
+    }
+    int q;
+    cin>>q;
+    int a=0;
+    int c=0;
+    for (int i=0;i<q;i++){
+      int b;
+      cin>>b;
+      int x=linearSearch1(arr,b,n);
+      int y=linearSearch2(arr,b,n);
+      //cout<<y<<endl;
+      a+=x;
+      c+=y;
+    }
+    cout<<a<<" "<<c<<endl;
+    
+    
+}
