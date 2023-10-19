@@ -1,0 +1,54 @@
+https://codeforces.com/problemset/problem/224/A
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int areas[3];
+    for (int i = 0; i < 3; ++i) {
+        cin >> areas[i];
+    }
+
+    int a, b, c;
+
+    for (a = 1; a <= areas[0]; ++a) {
+        if (areas[0] % a == 0) {
+            b = areas[0] / a;
+            if (areas[1] % b == 0) {
+                c = areas[1] / b;
+                if (areas[2] == a * c) {
+                    break;
+                }
+            }
+        }
+    }
+
+    int sum_of_edges = 4 * (a + b + c);
+
+    cout << sum_of_edges << endl;
+
+    return 0;
+}
+
+
+with formula
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int areas[3];
+    for (int i = 0; i < 3; ++i) {
+        cin >> areas[i];
+    }
+
+    int a = sqrt((areas[0] * areas[2]) / areas[1]);
+    int b = sqrt((areas[0] * areas[1]) / areas[2]);
+    int c = sqrt((areas[1] * areas[2]) / areas[0]);
+
+    int sum_of_edges = 4 * (a + b + c);
+
+    cout << sum_of_edges << endl;
+
+    return 0;
+}
