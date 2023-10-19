@@ -1,0 +1,45 @@
+https://codeforces.com/problemset/problem/165/A
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<pair<int, int>> points;
+
+    for (int i = 0; i < n; ++i) {
+        int x, y;
+        cin >> x >> y;
+        points.emplace_back(x, y);
+    }
+
+    int supercentral_count = 0;
+
+    for (auto &point : points) {
+        bool upper = false, lower = false, left = false, right = false;
+
+        for (auto &p : points) {
+            if (p.first > point.first && p.second == point.second) {
+                right = true;
+            } else if (p.first < point.first && p.second == point.second) {
+                left = true;
+            } else if (p.first == point.first && p.second > point.second) {
+                upper = true;
+            } else if (p.first == point.first && p.second < point.second) {
+                lower = true;
+            }
+        }
+
+        if (upper && lower && left && right) {
+            supercentral_count++;
+        }
+    }
+
+    cout << supercentral_count << endl;
+
+    return 0;
+}
