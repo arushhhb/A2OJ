@@ -1,0 +1,36 @@
+https://codeforces.com/problemset/problem/199/A
+
+#include <iostream>
+using namespace std;
+
+const int MAXN = 47; // The maximum index of Fibonacci numbers needed for n < 10^9
+
+void find_fibonacci_numbers(int n) {
+    int fib[MAXN];
+    fib[0] = 0;
+    fib[1] = 1;
+    for (int i = 2; i < MAXN; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+
+    for (int i = 0; i < MAXN; i++) {
+        for (int j = 0; j < MAXN; j++) {
+            for (int k = 0; k < MAXN; k++) {
+                if (fib[i] + fib[j] + fib[k] == n) {
+                    cout << fib[i] << " " << fib[j] << " " << fib[k] << endl;
+                    return;
+                }
+            }
+        }
+    }
+    cout << "I'm too stupid to solve this problem" << endl;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    find_fibonacci_numbers(n);
+
+    return 0;
+}
