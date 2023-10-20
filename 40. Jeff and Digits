@@ -1,0 +1,41 @@
+https://codeforces.com/problemset/problem/352/A
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int n;
+    cin>>n;
+    vector <int> cards(n);
+    for (int i=0;i<n;i++){
+      int m;
+      cin>>m;
+      cards[i]+=m;
+    }
+    int zeroes=0;
+    for (int i=0;i<n;i++){
+      if (cards[i]==0){
+        zeroes++;
+      }
+    }
+    if (zeroes==0){
+      cout<<"-1"<<endl;
+      return 0;
+    }
+    int sum=0;
+    for (int i=0;i<n;i++){
+      sum+=cards[i];
+    }
+    if (sum%9!=0){
+      cout<<"0"<<endl;
+      return 0;
+    }
+    else {
+      for (int i=0;i<n-zeroes;i++){
+        cout<<5;
+      }
+      for (int i=0;i<zeroes;i++){
+        cout<<0;
+      }
+    }
+    
+}
