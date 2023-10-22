@@ -1,0 +1,39 @@
+https://codeforces.com/problemset/problem/43/A
+
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    vector <string> v(n);
+    for (int i=0;i<n;++i){
+      cin>>v[i];
+    }
+    string t1=v[0];
+    string t2;
+    for (int i=1;i<n;i++){
+      if (v[i]!=t1){
+         t2=v[i];
+      }
+    }
+  //  cout<<t1<<" "<<t2<<endl;
+    
+    int g1=0, g2=0;
+    for (int i=0;i<n;i++){
+      if (v[i]==t1){
+        g1++;
+      }
+      else {
+        g2++;
+      }
+    }
+    
+    if (g1>g2){
+      cout<<t1<<endl;
+    }
+    else {
+      cout<<t2<<endl;
+    }
+    
+    return 0;
+}
