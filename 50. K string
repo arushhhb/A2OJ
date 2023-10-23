@@ -1,0 +1,39 @@
+https://codeforces.com/problemset/problem/219/A
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int k;
+    cin >> k;
+    string s;
+    cin >> s;
+
+    int hash[26] = {0}; // Hash array to count occurrences of each letter
+
+    for (char c : s) {
+        hash[c - 'a']++; // Count occurrences of each letter
+    }
+
+    string result = "";
+
+    for (int i = 0; i < 26; i++) {
+        if (hash[i] % k != 0) {
+            cout << -1 << endl; // If a solution doesn't exist
+            return 0;
+        } else {
+            // Concatenate characters in the required order
+            result += string(hash[i] / k, char('a' + i));
+        }
+    }
+
+    // Print the resulting k-string
+    for (int i = 0; i < k; i++) {
+        cout << result;
+    }
+
+    return 0;
+}
