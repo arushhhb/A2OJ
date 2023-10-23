@@ -1,0 +1,33 @@
+https://codeforces.com/problemset/problem/149/A
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string input;
+    cin >> input;
+
+    string originalSong = "";
+    for (int i = 0; i < input.length();) {
+        if (input.substr(i, 3) == "WUB") {
+            i += 3; // Skip "WUB"
+            continue;
+        } else {
+            // Extract the original word
+            while (i < input.length() && input.substr(i, 3) != "WUB") {
+                originalSong += input[i];
+                i++;
+            }
+            originalSong += " ";
+        }
+    }
+
+    // Remove extra space at the end
+    originalSong.pop_back();
+
+    cout << originalSong << endl;
+
+    return 0;
+}
