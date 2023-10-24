@@ -1,0 +1,17 @@
+https://codeforces.com/problemset/problem/124/A
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, a, b;
+    cin >> n >> a >> b;
+
+    // The number of different positions Petr can occupy is the number of people
+    // in front of him plus the number of people behind him.
+    // Since there are no less than 'a' people in front of him and no more than 'b'
+    // people behind him, the result will be the minimum of 'n-a' and 'b+1'.
+    cout << min(n - a, b + 1) << endl;
+
+    return 0;
+}
