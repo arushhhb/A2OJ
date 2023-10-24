@@ -1,0 +1,29 @@
+https://codeforces.com/problemset/problem/96/A
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    string positions;
+    cin>>positions;
+   // cout<<positions.size()<<endl;
+    
+    if(positions.size()<7){
+      cout<<"NO";
+      return 0;
+    }
+    
+    for (int i=0;i<positions.size()-6;i++){
+      if (positions.substr(i,7)=="0000000" || positions.substr(i,7)=="1111111"){
+        cout<<"YES"<<endl;
+        return 0;
+      }
+    }  
+      
+        cout<<"NO"<<endl;
+        return 0;
+    
+      
+    
+    
+    //return 0;
+}
