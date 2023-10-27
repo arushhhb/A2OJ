@@ -1,0 +1,41 @@
+https://codeforces.com/problemset/problem/218/B
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+ int maxi(vector <int> emptySeats, int n){
+ sort(emptySeats.rbegin(),emptySeats.rend());
+    int maxProfit=0;
+    for (int i=0;i<n;i++){
+      maxProfit+=emptySeats[0];
+      emptySeats[0]--;
+      sort(emptySeats.rbegin(),emptySeats.rend());
+    }
+    return maxProfit;
+ }  
+ 
+    int mini(vector <int> emptySeats, int n){
+    sort(emptySeats.begin(),emptySeats.end());
+    int minProfit=0;
+    for (int i=0;i<n;i++){
+      minProfit+=emptySeats[0];
+      emptySeats[0]--;
+     
+      if (emptySeats[0]==0){
+        emptySeats.erase(emptySeats.begin());
+      }
+      sort(emptySeats.begin(),emptySeats.end());
+    }
+    return minProfit;
+  }
+
+int main() {
+    int n,m;
+    cin>>n>>m;  
+    vector <int> emptySeats(m);
+    for (int i=0;i<m;i++){
+      cin>>emptySeats[i];
+    }
+    
+    cout<<maxi(emptySeats,n)<<" "<<mini(emptySeats,n)<<endl;
+}
