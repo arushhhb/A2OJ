@@ -1,0 +1,44 @@
+https://codeforces.com/problemset/problem/352/B
+
+#include <iostream>
+#include <vector>
+#include <map>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    map<int, vector<int>> positions;
+    for (int i = 1; i <= n; i++) {
+        int num;
+        cin >> num;
+        positions[num].push_back(i);
+    }
+
+    vector<pair<int, int>> result;
+    for (auto &entry : positions) {
+        vector<int> &pos = entry.second;
+        int sz = pos.size();
+        bool valid = true;
+        if (sz > 1) {
+            int diff = pos[1] - pos[0];
+            for (int i = 2; i < sz; i++) {
+                if (pos[i] - pos[i - 1] != diff) {
+                    valid = false;
+                    break;
+                }
+            }
+        }
+        if (valid) {
+            result.push_back({entry.first, (sz == 1 ? 0 : pos[1] - pos[0])});
+        }
+    }
+
+    cout << result.size() << endl;
+    for (auto &res : result) {
+        cout << res.first << " " << res.second << endl;
+    }
+
+    return 0;
+}
