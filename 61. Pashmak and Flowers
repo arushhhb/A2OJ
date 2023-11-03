@@ -1,0 +1,33 @@
+https://codeforces.com/problemset/problem/459/B
+
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    long long n;
+    cin>>n;
+    vector <int> beauty(n);
+    for (int i=0;i<n;i++){
+      cin>>beauty[i];
+    }
+    sort(beauty.begin(),beauty.end());
+    long long a =beauty[0];
+    long long b=beauty[n-1];
+    long long noa=0;
+    long long nob=0;
+    
+    if(a==b){
+      cout<<"0"<<" "<<(n*(n-1))/2<<endl;
+      return 0;
+    }
+    
+    for (int i=0;i<n;i++){
+      if (beauty[i]==a){
+        noa++;
+      }
+      if (beauty[i]==b){
+        nob++;
+      }
+    }
+    
+    cout<<b-a<<" "<<nob*noa<<endl;
+}
