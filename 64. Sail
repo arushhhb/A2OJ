@@ -1,0 +1,41 @@
+https://codeforces.com/problemset/problem/298/B
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int t, sx, sy, ex, ey;
+    cin >> t >> sx >> sy >> ex >> ey;
+
+    string wind;
+    cin >> wind;
+
+    int dx = abs(ex - sx);
+    int dy = abs(ey - sy);
+
+    for (int i = 0; i < t; ++i) {
+        // Move the boat according to the wind direction
+        if (wind[i] == 'E' && sx < ex) {
+            sx++;
+        } else if (wind[i] == 'S' && sy > ey) {
+            sy--;
+        } else if (wind[i] == 'W' && sx > ex) {
+            sx--;
+        } else if (wind[i] == 'N' && sy < ey) {
+            sy++;
+        }
+
+        // Check if the boat has reached the destination
+        if (sx == ex && sy == ey) {
+            cout << i + 1 << endl;
+            return 0;
+        }
+    }
+
+    // If the boat hasn't reached the destination after t seconds
+    cout << "-1" << endl;
+
+    return 0;
+}
